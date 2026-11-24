@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:rgb(85, 105, 190);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+
+.campo>i {
+    font-size: 16px;
+    color: #333;
+    position: absolute;
+    left: 10px;
+    top: 38px;
+}
+
+form {
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    background: white;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: entrada 0.7s ease;
+}
+
+
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+input:not([type="radio"]) {
+    border-radius: 5px;
+    height: 35px;
+    padding-left: 35px;
+    transition: 0.3s;
+    padding-right: 40px;
+}
+
+input.valido {
+    border: 2px solid blue;
+}
+
+input.invalido {
+    border: 2px solid red;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(193, 193, 198);
+    cursor: pointer;
+    width: 540px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: aliceblue;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
+}
+
+h2 {
+    border-bottom: 3px solid blue;
+    width: 150px;
+    margin-bottom: 25px;
+}
+
+.genero {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    padding: 0;
+    min-width: 0;
+}
+
+#mensagemErro {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#mensagemErro i {
+    margin-right: 4px;
+    position: static;
+}
+
+.erro {
+    color: red;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.erro.animar {
+    animation: aparecer 0.5s ease-in-out;
+}
+
+.erro i {
+    margin-right: 4px;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#mensagemErro.animar {
+    animation: aparecer 0.5s ease-in-out;
+}
+
+#erroGenero {
+    grid-column: 1 / -1;
+    display: block;
+    color: red;
+}
+
+
+.campo .alternar-senha {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transform: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.campo .alternar-senha:hover {
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+.alternar-senha i {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.alternar-senha:hover i {
+    transform: scale(1.15);
+}
+
+.alternar-senha:active i {
+    transform: scale(0.9);
+}
+
+/* ------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 25px 16px;
+        align-items: flex-start;
+    }
+
+                                        /* responsividade no celular */
+    form {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .campos {
+        grid-template-columns: 1fr;
+    }
+
+    button:not(.alternar-senha) {
+        width: 100%;
+    }
+
+    
+}
+
+/* -------------------------------------------------------------- */
